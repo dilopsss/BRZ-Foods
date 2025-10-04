@@ -48,80 +48,79 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-secondary py-24 md:py-32 lg:py-40">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/vibrant-brazilian-food-ingredients-colorful-spices.jpg"
-            alt="Brazilian ingredients"
-            className="h-full w-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90" />
+<section
+  className="relative overflow-hidden bg-white py-24 md:py-32 lg:py-40"
+  style={{
+    backgroundImage: "url('/backgrounds/logo-watermark.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    // faz a marca ficar grandona sem cortar: limita a 85vw ou 1000px
+    backgroundSize: "min(1000px, 85vw)",
+  }}
+>
+  <div className="container relative z-10 mx-auto px-4">
+    <div className="mx-auto max-w-4xl">
+      {/* Eyebrow text */}
+      <div className="mb-6 flex items-center justify-center gap-2 md:justify-start">
+        <div className="h-px w-12 bg-primary" />
+        <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+          Autêntico • Saboroso • Brasileiro
+        </span>
+      </div>
+
+      {/* Main headline */}
+      <h1 className="font-serif text-5xl font-black leading-[1.1] text-balance text-gray-900 md:text-6xl lg:text-7xl">
+        O sabor do Brasil
+        <br />
+        <span className="text-primary">na sua mesa.</span>
+      </h1>
+
+      {/* Subheadline */}
+      <p className="mt-8 max-w-2xl text-lg leading-relaxed text-gray-700 text-pretty md:text-xl">
+        Descubra produtos brasileiros autênticos, cuidadosamente selecionados para trazer a essência da culinária
+        brasileira direto para você. Da Amazônia à sua cozinha.
+      </p>
+
+      {/* CTA buttons */}
+      <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+        <Button
+          asChild
+          size="lg"
+          className="group h-14 text-base font-bold shadow-lg transition-all hover:shadow-xl"
+        >
+          <Link href="/products" className="gap-2">
+            Explorar Produtos
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </Link>
+        </Button>
+        <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="h-14 border-2 border-gray-300 bg-transparent text-base font-bold text-gray-900 backdrop-blur-sm transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
+        >
+          <Link href="/about">Nossa História</Link>
+        </Button>
+      </div>
+
+      {/* Social proof / stats */}
+      <div className="mt-16 grid grid-cols-3 gap-6 border-t border-gray-200 pt-8">
+        <div>
+          <div className="font-serif text-3xl font-black text-primary md:text-4xl">100+</div>
+          <div className="mt-1 text-sm font-medium text-gray-600">Produtos Únicos</div>
         </div>
-
-        <div className="container relative z-10 mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            {/* Eyebrow text */}
-            <div className="mb-6 flex items-center justify-center gap-2 md:justify-start">
-              <div className="h-px w-12 bg-primary" />
-              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Autêntico • Saboroso • Brasileiro
-              </span>
-            </div>
-
-            {/* Main headline */}
-            <h1 className="font-serif text-5xl font-black leading-[1.1] text-balance text-secondary-foreground md:text-6xl lg:text-7xl">
-              O sabor do Brasil
-              <br />
-              <span className="text-primary">na sua mesa.</span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-secondary-foreground/80 text-pretty md:text-xl">
-              Descubra produtos brasileiros autênticos, cuidadosamente selecionados para trazer a essência da culinária
-              brasileira direto para você. Da Amazônia à sua cozinha.
-            </p>
-
-            {/* CTA buttons */}
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="group h-14 text-base font-bold shadow-lg transition-all hover:shadow-xl"
-              >
-                <Link href="/products" className="gap-2">
-                  Explorar Produtos
-                  <ArrowRightIcon />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="h-14 border-2 border-secondary-foreground/20 bg-transparent text-base font-bold text-secondary-foreground backdrop-blur-sm transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
-              >
-                <Link href="/about">Nossa História</Link>
-              </Button>
-            </div>
-
-            {/* Social proof / stats */}
-            <div className="mt-16 grid grid-cols-3 gap-6 border-t border-secondary-foreground/10 pt-8">
-              <div>
-                <div className="font-serif text-3xl font-black text-primary md:text-4xl">100+</div>
-                <div className="mt-1 text-sm font-medium text-secondary-foreground/70">Produtos Únicos</div>
-              </div>
-              <div>
-                <div className="font-serif text-3xl font-black text-primary md:text-4xl">5★</div>
-                <div className="mt-1 text-sm font-medium text-secondary-foreground/70">Avaliação Média</div>
-              </div>
-              <div>
-                <div className="font-serif text-3xl font-black text-primary md:text-4xl">24h</div>
-                <div className="mt-1 text-sm font-medium text-secondary-foreground/70">Envio Rápido</div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <div className="font-serif text-3xl font-black text-primary md:text-4xl">5★</div>
+          <div className="mt-1 text-sm font-medium text-gray-600">Avaliação Média</div>
         </div>
-      </section>
+        <div>
+          <div className="font-serif text-3xl font-black text-primary md:text-4xl">24h</div>
+          <div className="mt-1 text-sm font-medium text-gray-600">Envio Rápido</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Trust Badges */}
       <section className="border-b border-border bg-card py-8">
