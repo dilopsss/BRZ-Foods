@@ -2,9 +2,9 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Logo } from "./logo"
 import { Button } from "./ui/button"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -37,20 +37,14 @@ export function Header() {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && mobileMenuOpen) {
-        setMobileMenuOpen(false)
-      }
+      if (e.key === "Escape" && mobileMenuOpen) setMobileMenuOpen(false)
     }
     document.addEventListener("keydown", handleEscape)
     return () => document.removeEventListener("keydown", handleEscape)
   }, [mobileMenuOpen])
 
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "unset"
     return () => {
       document.body.style.overflow = "unset"
     }
@@ -59,10 +53,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex h-20 items-center justify-between">
-          <Logo />
+        {/* Aumentamos a altura do header para comportar a logo maior */}
+        <div className="flex h-24 md:h-28 items-center justify-between">
+          {/* Logo grande e responsiva */}
+          <Link href="/" aria-label="BRZ Foods — Início" className="flex items-center">
+            <Image
+              src="/logos/logo-brzfoods.svg"
+              alt="BRZ Foods"
+              width={560}     // largura base para cálculo do layout
+              height={160}    // altura base para cálculo do layout
+              priority
+              sizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 260px"
+              className="h-16 sm:h-20 md:h-24 w-auto object-contain"
+            />
+          </Link>
 
-          {/* Desktop Navigation */}
+          {/* Navegação desktop */}
           <nav className="hidden items-center gap-8 md:flex" role="navigation" aria-label="Main menu">
             {navLinks.map((link) => (
               <Link
@@ -79,6 +85,7 @@ export function Header() {
             ))}
           </nav>
 
+          {/* Botão Amazon (desktop) */}
           <div className="hidden md:block">
             <Button
               asChild
@@ -96,7 +103,7 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Botão menu mobile */}
           <button
             className="rounded-md p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009739] md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -109,6 +116,7 @@ export function Header() {
         </div>
       </div>
 
+      {/* Menu mobile */}
       {mobileMenuOpen && (
         <div
           id="mobile-menu"
