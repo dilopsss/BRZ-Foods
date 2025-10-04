@@ -4,13 +4,16 @@ import Image from "next/image"
 function InstagramIcon() {
   return (
     <svg
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
-      fill="currentColor"
       aria-hidden="true"
+      className="h-6 w-6 fill-current"
     >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.675c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162z" />
+      {/* moldura */}
+      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7z"/>
+      {/* lente */}
+      <path d="M12 7.5A4.5 4.5 0 1 1 7.5 12 4.51 4.51 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5z"/>
+      {/* flash */}
+      <circle cx="17.5" cy="6.5" r="1.2" />
     </svg>
   )
 }
@@ -18,16 +21,14 @@ function InstagramIcon() {
 function MailIcon() {
   return (
     <svg
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
       aria-hidden="true"
+      className="h-6 w-6 stroke-current"
+      fill="none"
+      strokeWidth="2"
     >
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-      <polyline points="22,6 12,13 2,6"></polyline>
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+      <path d="M3 7l9 6 9-6"></path>
     </svg>
   )
 }
@@ -59,26 +60,17 @@ export function Footer() {
             <h3 className="mb-4 font-serif text-lg font-bold">Links Rápidos</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
+                <Link href="/" className="text-muted-foreground transition-colors hover:text-primary">
                   Início
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/products"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
+                <Link href="/products" className="text-muted-foreground transition-colors hover:text-primary">
                   Produtos
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/about"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
+                <Link href="/about" className="text-muted-foreground transition-colors hover:text-primary">
                   Sobre Nós
                 </Link>
               </li>
@@ -90,26 +82,17 @@ export function Footer() {
             <h3 className="mb-4 font-serif text-lg font-bold">Suporte</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  href="/#contact"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
+                <a href="/#contact" className="text-muted-foreground transition-colors hover:text-primary">
                   Contato
                 </a>
               </li>
               <li>
-                <a
-                  href="/#faq"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
+                <a href="/#faq" className="text-muted-foreground transition-colors hover:text-primary">
                   FAQ
                 </a>
               </li>
               <li>
-                <a
-                  href="/#shipping"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
+                <a href="/#shipping" className="text-muted-foreground transition-colors hover:text-primary">
                   Envio
                 </a>
               </li>
@@ -119,20 +102,22 @@ export function Footer() {
           {/* Social */}
           <div>
             <h3 className="mb-4 font-serif text-lg font-bold">Redes Sociais</h3>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               <a
-                href="https://www.instagram.com/brzfoods/?next=%2F"
+                href="https://www.instagram.com/brzfoods"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-primary"
+                className="text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
                 aria-label="Instagram da BRZ Foods"
+                title="@brzfoods"
               >
                 <InstagramIcon />
               </a>
               <a
                 href="mailto:brzfoods@outlook.com"
-                className="text-muted-foreground transition-colors hover:text-primary"
+                className="text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
                 aria-label="Enviar e-mail para BRZ Foods"
+                title="brzfoods@outlook.com"
               >
                 <MailIcon />
               </a>
